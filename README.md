@@ -2,7 +2,7 @@
 
 [![GoDoc](https://godoc.org/github.com/hmage/goheif?status.svg)](https://godoc.org/github.com/hmage/goheif) ![badge](https://action-badges.now.sh/hmage/goheif)
 
-This is a fork of jdeng/goheif(https://github.com/jdeng/goheif) but without C code — only for parsing HEIF container and extracting EXIF.
+This is a fork of [jdeng/goheif](https://github.com/jdeng/goheif) but without C code — only for parsing HEIF container and extracting EXIF.
 
 ## Install
 - Tested
