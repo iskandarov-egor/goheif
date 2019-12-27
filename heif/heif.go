@@ -27,7 +27,7 @@ import (
 	"io"
 	"log"
 
-	"github.com/hmage/goheif/heif/bmff"
+	"github.com/iskandarov-egor/goheif/heif/bmff"
 )
 
 // File represents a HEIF file.

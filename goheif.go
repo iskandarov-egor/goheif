@@ -8,7 +8,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/hmage/goheif/heif"
+	"github.com/iskandarov-egor/goheif/heif"
 )
 
 func ExtractExif(ra io.ReaderAt) ([]byte, error) {
