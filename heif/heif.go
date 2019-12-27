@@ -237,9 +237,22 @@ func (f *File) getMeta() (*BoxMeta, error) {
 	}
 	meta.FileType = pbox.(*bmff.FileTypeBox)
 
-	pbox, err = bmr.ReadAndParseBox(bmff.TypeMeta)
-	if err != nil {
-		return nil, f.setMetaErr(err)
+	for i := 0; true; i++ {
+		box, err := bmr.ReadBox()
+		if err != nil {
+			return nil, f.setMetaErr(err)
+		}
+		if box.Type() == bmff.TypeMeta {
+			pbox, err = box.Parse()
+			if err != nil {
+				err = fmt.Errorf("error parsing %q box: %v", box.Type(), err)
+				return nil, f.setMetaErr(err)
+			}
+			break
+		}
+		if i == 1000 {
+			return nil, f.setMetaErr(fmt.Errorf("parsing too many boxes, possibly inf loop"))
+		}
 	}
 	metabox := pbox.(*bmff.MetaBox)
 
